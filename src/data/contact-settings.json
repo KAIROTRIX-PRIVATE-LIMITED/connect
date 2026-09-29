@@ -1,0 +1,54 @@
+{
+  "companyName": "KAIROTRIX",
+  "tagline": "BUILT TO EVOLVE",
+  "phone": "+1 (800) 555-0199",
+  "whatsapp": "+1 (800) 555-0199",
+  "email": "connect@kairotrix.com",
+  "website": "https://kairotrix.com",
+  "bookingUrl": "https://kairotrix.com/book",
+  "address": "San Francisco, CA, United States",
+  "notes": "Leading enterprise artificial intelligence & autonomous systems.",
+  "updatedAt": "2026-09-28T09:53:46.966Z",
+  "secondaryLinks": [
+    {
+      "id": "link-1",
+      "type": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/company/kairotrix",
+      "position": 1,
+      "enabled": true
+    },
+    {
+      "id": "link-2",
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com/kairotrix",
+      "position": 2,
+      "enabled": true
+    },
+    {
+      "id": "link-3",
+      "type": "website",
+      "label": "Official Website",
+      "url": "https://kairotrix.com",
+      "position": 3,
+      "enabled": false
+    },
+    {
+      "id": "link-4",
+      "type": "x",
+      "label": "X / Twitter",
+      "url": "https://x.com/kairotrix",
+      "position": 4,
+      "enabled": true
+    },
+    {
+      "id": "link-5",
+      "type": "youtube",
+      "label": "YouTube",
+      "url": "https://youtube.com/@kairotrix",
+      "position": 5,
+      "enabled": false
+    }
+  ]
+}

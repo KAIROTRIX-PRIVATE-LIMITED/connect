@@ -1,0 +1,323 @@
+[
+  {
+    "id": "evt-1790662697462-33a9p",
+    "timestamp": "2026-09-29T06:18:17.462Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790662697449-d73pt",
+    "timestamp": "2026-09-29T06:18:17.449Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661841787-ezhy1",
+    "timestamp": "2026-09-29T06:04:01.787Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661819515-jfoj2",
+    "timestamp": "2026-09-29T06:03:39.515Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661777392-tvtkx",
+    "timestamp": "2026-09-29T06:02:57.392Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661756842-s7nb6",
+    "timestamp": "2026-09-29T06:02:36.842Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661740772-zsgqg",
+    "timestamp": "2026-09-29T06:02:20.772Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661728103-x9l72",
+    "timestamp": "2026-09-29T06:02:08.103Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661575897-99r7s",
+    "timestamp": "2026-09-29T05:59:35.897Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661551645-7qqxg",
+    "timestamp": "2026-09-29T05:59:11.645Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661551633-vdkum",
+    "timestamp": "2026-09-29T05:59:11.633Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661515360-x6faa",
+    "timestamp": "2026-09-29T05:58:35.360Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661515341-9bl8p",
+    "timestamp": "2026-09-29T05:58:35.341Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661498059-g5v3x",
+    "timestamp": "2026-09-29T05:58:18.059Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661496833-xa6a7",
+    "timestamp": "2026-09-29T05:58:16.833Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661496824-ds2j5",
+    "timestamp": "2026-09-29T05:58:16.824Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661485429-ikril",
+    "timestamp": "2026-09-29T05:58:05.429Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661485420-sdfur",
+    "timestamp": "2026-09-29T05:58:05.420Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661152381-e0c34",
+    "timestamp": "2026-09-29T05:52:32.381Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661152372-umqcn",
+    "timestamp": "2026-09-29T05:52:32.372Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661124497-5eumz",
+    "timestamp": "2026-09-29T05:52:04.497Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661124469-9fqfm",
+    "timestamp": "2026-09-29T05:52:04.469Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661119271-okylz",
+    "timestamp": "2026-09-29T05:51:59.271Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661119249-rs764",
+    "timestamp": "2026-09-29T05:51:59.249Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661049055-f4thk",
+    "timestamp": "2026-09-29T05:50:49.055Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661049040-4xgno",
+    "timestamp": "2026-09-29T05:50:49.040Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661036593-trloh",
+    "timestamp": "2026-09-29T05:50:36.593Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790661036573-dli3r",
+    "timestamp": "2026-09-29T05:50:36.573Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790659809129-su1zx",
+    "timestamp": "2026-09-29T05:30:09.129Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790659809097-j1bui",
+    "timestamp": "2026-09-29T05:30:09.097Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790659423824-hvj57",
+    "timestamp": "2026-09-29T05:23:43.824Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790659423771-q0bif",
+    "timestamp": "2026-09-29T05:23:43.771Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790659376300-f0jp4",
+    "timestamp": "2026-09-29T05:22:56.300Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790659376217-p7olf",
+    "timestamp": "2026-09-29T05:22:56.217Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790589231866-fqqag",
+    "timestamp": "2026-09-28T09:53:51.866Z",
+    "event": "contact_social_click",
+    "source": "direct_qr",
+    "target": "Official Website (https://kairotrix.com)",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790589106711-6930y",
+    "timestamp": "2026-09-28T09:51:46.711Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790589106642-haknf",
+    "timestamp": "2026-09-28T09:51:46.642Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790589063839-s70ta",
+    "timestamp": "2026-09-28T09:51:03.839Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790589018005-h6nr0",
+    "timestamp": "2026-09-28T09:50:18.005Z",
+    "event": "contact_social_click",
+    "source": "direct_qr",
+    "target": "Official Website (https://kairotrix.com)",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790588992019-cclvj",
+    "timestamp": "2026-09-28T09:49:52.019Z",
+    "event": "contact_vcard_download",
+    "source": "direct_qr",
+    "target": "/api/vcard",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790588983647-skqpq",
+    "timestamp": "2026-09-28T09:49:43.647Z",
+    "event": "contact_social_click",
+    "source": "direct_qr",
+    "target": "Instagram (https://instagram.com/kairotrix)",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790588960467-uzy94",
+    "timestamp": "2026-09-28T09:49:20.467Z",
+    "event": "contact_whatsapp_click",
+    "source": "direct_qr",
+    "target": "https://wa.me/18005550199",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790588953834-vsb2n",
+    "timestamp": "2026-09-28T09:49:13.834Z",
+    "event": "contact_call_click",
+    "source": "direct_qr",
+    "target": "tel:+18005550199",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790588946343-q4ckr",
+    "timestamp": "2026-09-28T09:49:06.343Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  },
+  {
+    "id": "evt-1790588946274-nb9zx",
+    "timestamp": "2026-09-28T09:49:06.274Z",
+    "event": "contact_page_view",
+    "source": "direct_qr",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0"
+  }
+]
