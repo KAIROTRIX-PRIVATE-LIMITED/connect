@@ -16,6 +16,7 @@ export interface ContactSettings {
   email: string;
   website: string;
   bookingUrl: string;
+  showBookingBtn?: boolean;
   address: string;
   notes: string;
   updatedAt: string;

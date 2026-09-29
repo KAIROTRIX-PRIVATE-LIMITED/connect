@@ -1,14 +1,14 @@
 {
   "companyName": "KAIROTRIX",
   "tagline": "BUILT TO EVOLVE",
-  "phone": "+1 (800) 555-0199",
-  "whatsapp": "+1 (800) 555-0199",
-  "email": "connect@kairotrix.com",
+  "phone": "+91 9551552444",
+  "whatsapp": "+91 9551552444",
+  "email": "kairotrix.official@gmail.com",
   "website": "https://kairotrix.com",
   "bookingUrl": "https://kairotrix.com/book",
   "address": "San Francisco, CA, United States",
   "notes": "Leading enterprise artificial intelligence & autonomous systems.",
-  "updatedAt": "2026-09-28T09:53:46.966Z",
+  "updatedAt": "2026-09-29T09:54:53.413Z",
   "secondaryLinks": [
     {
       "id": "link-1",
@@ -27,14 +27,6 @@
       "enabled": true
     },
     {
-      "id": "link-3",
-      "type": "website",
-      "label": "Official Website",
-      "url": "https://kairotrix.com",
-      "position": 3,
-      "enabled": false
-    },
-    {
       "id": "link-4",
       "type": "x",
       "label": "X / Twitter",
@@ -50,5 +42,6 @@
       "position": 5,
       "enabled": false
     }
-  ]
+  ],
+  "showBookingBtn": false
 }

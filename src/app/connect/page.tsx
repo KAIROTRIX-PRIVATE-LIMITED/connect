@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { getContactSettings } from '@/lib/storage';
 import { ConnectPageClient } from '@/components/connect/ConnectPageClient';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Contact KAIROTRIX | Connect with Us',
   description: 'Contact KAIROTRIX by phone, WhatsApp, email, social media, or meeting request.',

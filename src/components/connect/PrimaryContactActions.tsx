@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Phone, MessageCircle, Mail, Calendar, ArrowUpRight } from 'lucide-react';
+import { Phone, MessageCircle, Mail, Globe, Calendar, ArrowUpRight } from 'lucide-react';
 import { ContactSettings } from '@/lib/types';
 
 interface PrimaryContactActionsProps {
@@ -22,24 +22,41 @@ export function PrimaryContactActions({
 
   const handleCall = () => {
     onActionClick('call');
-    window.location.href = `tel:${settings.phone}`;
+    if (settings.phone) {
+      window.location.href = `tel:${settings.phone}`;
+    }
   };
 
   const handleWhatsApp = () => {
     onActionClick('whatsapp');
-    const cleanNumber = settings.whatsappNumber.replace(/[^0-9]/g, '');
+    const whatsappNum = settings.whatsapp || '';
+    const cleanNumber = whatsappNum.replace(/[^0-9]/g, '');
     window.open(`https://wa.me/${cleanNumber}`, '_blank', 'noopener,noreferrer');
   };
 
   const handleEmail = () => {
     onActionClick('email');
-    window.location.href = `mailto:${settings.email}`;
+    if (settings.email) {
+      window.location.href = `mailto:${settings.email}`;
+    }
   };
+
+  const handleWebsite = () => {
+    onActionClick('website');
+    if (settings.website) {
+      const url = settings.website.startsWith('http') ? settings.website : `https://${settings.website}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const showBooking = settings.showBookingBtn !== false && Boolean(settings.bookingUrl);
+
+  const activeWhatsapp = settings.whatsapp;
 
   return (
     <div className="w-full space-y-3 my-2">
       {/* Primary Hero CTA: Book Meeting */}
-      {settings.bookingUrl && (
+      {showBooking && (
         <button
           onClick={handleBooking}
           className="relative w-full group overflow-hidden rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 p-0.5 shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30 hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
@@ -69,15 +86,15 @@ export function PrimaryContactActions({
         </button>
       )}
 
-      {/* 3-Column Grid for Direct Actions */}
-      <div className="grid grid-cols-3 gap-2.5">
+      {/* Auto-adjusting Flex Grid for Direct Actions */}
+      <div className="flex flex-wrap gap-2.5 w-full">
         {/* Call */}
         {settings.phone && (
           <button
             onClick={handleCall}
-            className="group flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:border-purple-300 hover:shadow-md hover:shadow-purple-500/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="flex-1 min-w-[90px] group flex flex-col items-center justify-center p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs transition-all duration-300 hover:border-purple-300 hover:shadow-md hover:shadow-purple-500/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <div className="w-10 h-10 mb-2 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+            <div className="w-9 h-9 mb-1.5 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
               <Phone className="w-4 h-4" />
             </div>
             <span className="text-xs font-bold text-slate-800 group-hover:text-purple-700 transition-colors">
@@ -90,12 +107,12 @@ export function PrimaryContactActions({
         )}
 
         {/* WhatsApp */}
-        {settings.whatsappNumber && (
+        {activeWhatsapp && (
           <button
             onClick={handleWhatsApp}
-            className="group flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:border-emerald-300 hover:shadow-md hover:shadow-emerald-500/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="flex-1 min-w-[90px] group flex flex-col items-center justify-center p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs transition-all duration-300 hover:border-emerald-300 hover:shadow-md hover:shadow-emerald-500/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <div className="w-10 h-10 mb-2 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+            <div className="w-9 h-9 mb-1.5 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
               <MessageCircle className="w-4 h-4" />
             </div>
             <span className="text-xs font-bold text-slate-800 group-hover:text-emerald-700 transition-colors">
@@ -111,9 +128,9 @@ export function PrimaryContactActions({
         {settings.email && (
           <button
             onClick={handleEmail}
-            className="group flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white border border-slate-200/80 shadow-sm transition-all duration-300 hover:border-indigo-300 hover:shadow-md hover:shadow-indigo-500/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="flex-1 min-w-[90px] group flex flex-col items-center justify-center p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs transition-all duration-300 hover:border-indigo-300 hover:shadow-md hover:shadow-indigo-500/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <div className="w-10 h-10 mb-2 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+            <div className="w-9 h-9 mb-1.5 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
               <Mail className="w-4 h-4" />
             </div>
             <span className="text-xs font-bold text-slate-800 group-hover:text-indigo-700 transition-colors">
@@ -121,6 +138,24 @@ export function PrimaryContactActions({
             </span>
             <span className="text-[10px] text-slate-400 font-medium truncate max-w-full">
               Send Mail
+            </span>
+          </button>
+        )}
+
+        {/* Website (3rd or 4th Action) */}
+        {settings.website && (
+          <button
+            onClick={handleWebsite}
+            className="flex-1 min-w-[90px] group flex flex-col items-center justify-center p-3 rounded-2xl bg-white border border-slate-200/80 shadow-xs transition-all duration-300 hover:border-blue-300 hover:shadow-md hover:shadow-blue-500/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          >
+            <div className="w-9 h-9 mb-1.5 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+              <Globe className="w-4 h-4" />
+            </div>
+            <span className="text-xs font-bold text-slate-800 group-hover:text-blue-700 transition-colors">
+              Website
+            </span>
+            <span className="text-[10px] text-slate-400 font-medium truncate max-w-full">
+              Visit Site
             </span>
           </button>
         )}

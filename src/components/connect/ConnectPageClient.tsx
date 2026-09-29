@@ -68,16 +68,13 @@ export function ConnectPageClient({ initialSettings }: ConnectPageClientProps) {
           <div className="animate-slide-up-d1">
             <BrandHeader
               companyName={settings.companyName}
-              tagline={settings.tagline}
+              
             />
           </div>
 
           {/* 2. Contact Intro Title & Subtitle */}
           <div className="animate-slide-up-d2">
-            <ContactIntro
-              title={settings.title}
-              subtitle={settings.subtitle}
-            />
+            <ContactIntro />
           </div>
 
           {/* 3. Hero CTA & Primary Contact Actions */}
@@ -104,7 +101,7 @@ export function ConnectPageClient({ initialSettings }: ConnectPageClientProps) {
           {/* 6. Footer */}
           <ContactFooter
             companyName={settings.companyName}
-            websiteUrl={settings.websiteUrl}
+            websiteUrl={settings.website}
           />
         </div>
       </div>

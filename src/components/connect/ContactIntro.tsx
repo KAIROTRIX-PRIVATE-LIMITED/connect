@@ -11,7 +11,7 @@ export function ContactIntro({
 }: ContactIntroProps) {
   return (
     <div className="text-center py-2">
-      <h1 className="text-2xl font-bold tracking-tight text-slate-900 mb-1">
+      <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-800 bg-clip-text text-transparent mb-1">
         {title}
       </h1>
       <p className="text-sm font-medium text-slate-500 max-w-xs mx-auto leading-relaxed">

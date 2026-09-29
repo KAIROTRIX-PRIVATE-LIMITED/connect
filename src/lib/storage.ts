@@ -14,6 +14,7 @@ const defaultSettings: ContactSettings = {
   email: "connect@kairotrix.com",
   website: "https://kairotrix.com",
   bookingUrl: "https://kairotrix.com/book",
+  showBookingBtn: true,
   address: "San Francisco, CA, United States",
   notes: "Leading enterprise artificial intelligence & autonomous systems.",
   updatedAt: new Date().toISOString(),
@@ -68,9 +69,6 @@ function ensureDataDir() {
 }
 
 export function getContactSettings(): ContactSettings {
-  if (inMemorySettings) {
-    return inMemorySettings;
-  }
   try {
     ensureDataDir();
     if (fs.existsSync(SETTINGS_FILE)) {
@@ -81,6 +79,9 @@ export function getContactSettings(): ContactSettings {
     }
   } catch (err) {
     console.error('Error reading contact settings file, returning default:', err);
+  }
+  if (inMemorySettings) {
+    return inMemorySettings;
   }
   inMemorySettings = defaultSettings;
   return defaultSettings;

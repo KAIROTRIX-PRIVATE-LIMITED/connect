@@ -39,19 +39,7 @@ export function ContactForm({ settings, onChange }: ContactFormProps) {
           />
         </div>
 
-        {/* Tagline */}
-        <div>
-          <label className="block text-xs font-semibold text-gray-700 mb-1">
-            Tagline
-          </label>
-          <input
-            type="text"
-            value={settings.tagline || ''}
-            onChange={(e) => handleChange('tagline', e.target.value)}
-            className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 text-xs text-gray-900 outline-none"
-            placeholder="BUILT TO EVOLVE"
-          />
-        </div>
+        
 
         {/* Phone */}
         <div>
@@ -113,18 +101,29 @@ export function ContactForm({ settings, onChange }: ContactFormProps) {
           />
         </div>
 
-        {/* Booking URL */}
-        <div className="md:col-span-2">
-          <label className="block text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1.5">
-            <Calendar className="w-3.5 h-3.5 text-purple-600" />
-            Book a Meeting URL (Cal.com / Calendly / Custom link)
-          </label>
+        {/* Booking URL & Visibility Toggle */}
+        <div className="md:col-span-2 space-y-2">
+          <div className="flex items-center justify-between">
+            <label className="text-xs font-semibold text-gray-700 flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5 text-purple-600" />
+              Book a Meeting URL (Cal.com / Calendly / Custom link)
+            </label>
+            <label className="flex items-center gap-2 cursor-pointer">
+              <span className="text-xs text-gray-600 font-medium">Visible on page</span>
+              <input
+                type="checkbox"
+                checked={settings.showBookingBtn !== false}
+                onChange={(e) => onChange({ ...settings, showBookingBtn: e.target.checked })}
+                className="w-4 h-4 text-purple-600 rounded focus:ring-purple-500 accent-purple-600 cursor-pointer"
+              />
+            </label>
+          </div>
           <input
             type="url"
             value={settings.bookingUrl || ''}
             onChange={(e) => handleChange('bookingUrl', e.target.value)}
             className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 text-xs text-gray-900 outline-none"
-            placeholder="https://kairotrix.com/book (Leave blank to hide button)"
+            placeholder="https://kairotrix.com/book"
           />
         </div>
 
