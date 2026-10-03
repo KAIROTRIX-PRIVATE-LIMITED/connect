@@ -1,58 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import { ContactSettings, AnalyticsEvent, AnalyticsSummary } from './types';
+import fallbackSettingsData from '@/data/contact-settings.json';
 
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const SETTINGS_FILE = path.join(DATA_DIR, 'contact-settings.json');
 const ANALYTICS_FILE = path.join(DATA_DIR, 'analytics-log.json');
 
-const defaultSettings: ContactSettings = {
-  companyName: "KAIROTRIX",
-  tagline: "BUILT TO EVOLVE",
-  phone: "+1 (800) 555-0199",
-  whatsapp: "+1 (800) 555-0199",
-  email: "connect@kairotrix.com",
-  website: "https://kairotrix.com",
-  bookingUrl: "https://kairotrix.com/book",
-  showBookingBtn: true,
-  address: "San Francisco, CA, United States",
-  notes: "Leading enterprise artificial intelligence & autonomous systems.",
-  updatedAt: new Date().toISOString(),
-  secondaryLinks: [
-    {
-      id: "link-1",
-      type: "linkedin",
-      label: "LinkedIn",
-      url: "https://linkedin.com/company/kairotrix",
-      position: 1,
-      enabled: true
-    },
-    {
-      id: "link-2",
-      type: "instagram",
-      label: "Instagram",
-      url: "https://instagram.com/kairotrix",
-      position: 2,
-      enabled: true
-    },
-    {
-      id: "link-3",
-      type: "website",
-      label: "Official Website",
-      url: "https://kairotrix.com",
-      position: 3,
-      enabled: true
-    },
-    {
-      id: "link-4",
-      type: "x",
-      label: "X / Twitter",
-      url: "https://x.com/kairotrix",
-      position: 4,
-      enabled: true
-    }
-  ]
-};
+const defaultSettings: ContactSettings = fallbackSettingsData as ContactSettings;
 
 // Memory fallback cache if FS writing is prohibited
 let inMemorySettings: ContactSettings | null = null;
@@ -68,12 +23,39 @@ function ensureDataDir() {
   }
 }
 
-function getKvConfig() {
-  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (url && token) {
-    return { url, token };
+export function getKvConfig(): { url: string; token: string } | null {
+  // Check standard variable names
+  const directUrl =
+    process.env.KV_REST_API_URL ||
+    process.env.UPSTASH_REDIS_REST_URL ||
+    process.env.REDIS_REST_API_URL;
+  const directToken =
+    process.env.KV_REST_API_TOKEN ||
+    process.env.UPSTASH_REDIS_REST_TOKEN ||
+    process.env.REDIS_REST_API_TOKEN;
+
+  if (directUrl && directToken) {
+    return { url: directUrl.replace(/\/$/, ''), token: directToken };
   }
+
+  // Scan process.env for any dynamically prefixed Upstash/KV variables
+  for (const [key, value] of Object.entries(process.env)) {
+    if (
+      value &&
+      (key.includes('KV') || key.includes('REDIS') || key.includes('UPSTASH')) &&
+      (key.endsWith('_REST_API_URL') || key.endsWith('_REST_URL') || key.endsWith('_URL'))
+    ) {
+      const prefix = key.replace(/_(REST_API_URL|REST_URL|URL)$/, '');
+      const token =
+        process.env[`${prefix}_REST_API_TOKEN`] ||
+        process.env[`${prefix}_REST_TOKEN`] ||
+        process.env[`${prefix}_TOKEN`];
+      if (token && value.startsWith('http')) {
+        return { url: value.replace(/\/$/, ''), token };
+      }
+    }
+  }
+
   return null;
 }
 
@@ -81,8 +63,13 @@ export async function getContactSettings(): Promise<ContactSettings> {
   const kv = getKvConfig();
   if (kv) {
     try {
-      const res = await fetch(`${kv.url}/get/contact_settings`, {
-        headers: { Authorization: `Bearer ${kv.token}` },
+      const res = await fetch(kv.url, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${kv.token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(['GET', 'contact_settings']),
         cache: 'no-store',
       });
       if (res.ok) {
@@ -107,8 +94,9 @@ export async function getContactSettings(): Promise<ContactSettings> {
       return parsed;
     }
   } catch (err) {
-    console.error('Error reading contact settings file, returning default:', err);
+    // Expected on serverless when directory is not extracted
   }
+
   if (inMemorySettings) {
     return inMemorySettings;
   }
@@ -130,16 +118,21 @@ export async function saveContactSettings(settings: Partial<ContactSettings>): P
   const kv = getKvConfig();
   if (kv) {
     try {
-      const res = await fetch(`${kv.url}/set/contact_settings`, {
+      const res = await fetch(kv.url, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${kv.token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(JSON.stringify(updated)),
+        body: JSON.stringify(['SET', 'contact_settings', JSON.stringify(updated)]),
       });
       if (res.ok) {
-        persisted = true;
+        const data = await res.json();
+        if (data.result === 'OK' || data.result) {
+          persisted = true;
+        }
+      } else {
+        console.error('Upstash SET failed with status:', res.status, await res.text());
       }
     } catch (err) {
       console.error('Error saving contact settings to KV store:', err);
@@ -151,12 +144,16 @@ export async function saveContactSettings(settings: Partial<ContactSettings>): P
     fs.writeFileSync(SETTINGS_FILE, JSON.stringify(updated, null, 2), 'utf-8');
     persisted = true;
   } catch (err) {
-    console.warn('Could not write contact settings to disk (likely read-only serverless filesystem):', err);
+    // Expected on read-only serverless
   }
 
   let warning: string | undefined;
   if (!persisted) {
-    warning = 'Hosting filesystem is read-only (e.g. Vercel). To persist changes across visitors, add Upstash Redis / Vercel KV environment variables, or update contact-settings.json in your code repository.';
+    if (!kv) {
+      warning = 'KV database not linked yet. Please REDEPLOY this project on Vercel so it attaches your newly created Upstash database.';
+    } else {
+      warning = 'Could not persist to KV store. Please check Vercel function logs.';
+    }
   }
 
   return { data: updated, persisted, warning };
