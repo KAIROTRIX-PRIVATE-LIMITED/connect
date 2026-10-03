@@ -21,6 +21,10 @@ export function ConnectPageClient({ initialSettings }: ConnectPageClientProps) {
   const [settings, setSettings] = useState<ContactSettings>(initialSettings);
   const [copied, setCopied] = useState(false);
 
+  useEffect(() => {
+    setSettings(initialSettings);
+  }, [initialSettings]);
+
   // Track page view
   useEffect(() => {
     fetch('/api/analytics', {

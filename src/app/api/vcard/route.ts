@@ -2,8 +2,10 @@ import { NextResponse } from 'next/server';
 import { getContactSettings } from '@/lib/storage';
 import { generateVCard } from '@/lib/vcard';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
-  const settings = getContactSettings();
+  const settings = await getContactSettings();
   const vcardContent = generateVCard(settings);
   const fileName = `${settings.companyName.replace(/[^a-zA-Z0-9]/g, '_')}_Contact.vcf`;
 

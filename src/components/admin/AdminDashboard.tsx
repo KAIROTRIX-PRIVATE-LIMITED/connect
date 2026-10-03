@@ -25,7 +25,7 @@ export function AdminDashboard({ token, onLogout }: AdminDashboardProps) {
 
   const fetchSettings = async () => {
     try {
-      const res = await fetch('/api/contact');
+      const res = await fetch('/api/contact', { cache: 'no-store' });
       const data = await res.json();
       if (data.success && data.data) {
         setSettings(data.data);
@@ -58,6 +58,11 @@ export function AdminDashboard({ token, onLogout }: AdminDashboardProps) {
       if (data.success) {
         setSavedSuccess(true);
         setSettings(data.data);
+        if (data.warning) {
+          setError(data.warning);
+        } else {
+          setError('');
+        }
         setTimeout(() => setSavedSuccess(false), 3000);
       } else {
         setError(data.error || 'Failed to save changes.');

@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ConnectPage() {
-  const initialSettings = getContactSettings();
+export default async function ConnectPage() {
+  const initialSettings = await getContactSettings();
 
   return (
     <Suspense

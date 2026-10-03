@@ -1,9 +1,16 @@
 import { NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getContactSettings, saveContactSettings } from '@/lib/storage';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
-  const settings = getContactSettings();
-  return NextResponse.json({ success: true, data: settings });
+  const settings = await getContactSettings();
+  return NextResponse.json({ success: true, data: settings }, {
+    headers: {
+      'Cache-Control': 'no-store, no-cache, must-revalidate',
+    },
+  });
 }
 
 export async function POST(request: Request) {
@@ -16,8 +23,18 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const updated = saveContactSettings(body);
-    return NextResponse.json({ success: true, data: updated });
+    const result = await saveContactSettings(body);
+
+    revalidatePath('/connect');
+    revalidatePath('/');
+    revalidatePath('/admin/contact');
+
+    return NextResponse.json({
+      success: true,
+      data: result.data,
+      persisted: result.persisted,
+      warning: result.warning,
+    });
   } catch (error) {
     console.error('Error updating contact settings:', error);
     return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });

@@ -68,7 +68,36 @@ function ensureDataDir() {
   }
 }
 
-export function getContactSettings(): ContactSettings {
+function getKvConfig() {
+  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (url && token) {
+    return { url, token };
+  }
+  return null;
+}
+
+export async function getContactSettings(): Promise<ContactSettings> {
+  const kv = getKvConfig();
+  if (kv) {
+    try {
+      const res = await fetch(`${kv.url}/get/contact_settings`, {
+        headers: { Authorization: `Bearer ${kv.token}` },
+        cache: 'no-store',
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.result) {
+          const parsed = typeof data.result === 'string' ? JSON.parse(data.result) : data.result;
+          inMemorySettings = parsed;
+          return parsed;
+        }
+      }
+    } catch (err) {
+      console.error('Error reading contact settings from KV store:', err);
+    }
+  }
+
   try {
     ensureDataDir();
     if (fs.existsSync(SETTINGS_FILE)) {
@@ -87,8 +116,8 @@ export function getContactSettings(): ContactSettings {
   return defaultSettings;
 }
 
-export function saveContactSettings(settings: Partial<ContactSettings>): ContactSettings {
-  const current = getContactSettings();
+export async function saveContactSettings(settings: Partial<ContactSettings>): Promise<{ data: ContactSettings; persisted: boolean; warning?: string }> {
+  const current = await getContactSettings();
   const updated: ContactSettings = {
     ...current,
     ...settings,
@@ -96,15 +125,41 @@ export function saveContactSettings(settings: Partial<ContactSettings>): Contact
   };
 
   inMemorySettings = updated;
+  let persisted = false;
+
+  const kv = getKvConfig();
+  if (kv) {
+    try {
+      const res = await fetch(`${kv.url}/set/contact_settings`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${kv.token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(JSON.stringify(updated)),
+      });
+      if (res.ok) {
+        persisted = true;
+      }
+    } catch (err) {
+      console.error('Error saving contact settings to KV store:', err);
+    }
+  }
 
   try {
     ensureDataDir();
     fs.writeFileSync(SETTINGS_FILE, JSON.stringify(updated, null, 2), 'utf-8');
+    persisted = true;
   } catch (err) {
-    console.warn('Could not write contact settings to disk, saved in memory:', err);
+    console.warn('Could not write contact settings to disk (likely read-only serverless filesystem):', err);
   }
 
-  return updated;
+  let warning: string | undefined;
+  if (!persisted) {
+    warning = 'Hosting filesystem is read-only (e.g. Vercel). To persist changes across visitors, add Upstash Redis / Vercel KV environment variables, or update contact-settings.json in your code repository.';
+  }
+
+  return { data: updated, persisted, warning };
 }
 
 export function getAnalyticsEvents(): AnalyticsEvent[] {
